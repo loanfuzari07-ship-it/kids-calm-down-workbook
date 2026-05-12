@@ -366,7 +366,7 @@
   }
   .inside-card-body {
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 0;
     align-items: stretch;
   }
@@ -595,10 +595,10 @@
   .divider { width: 60px; height: 4px; background: var(--orange); border-radius: 2px; margin: 12px auto 0; }
 
   /* CAROUSEL */
-  .carousel-wrap { position: relative; max-width: 780px; margin: 0 auto; overflow: hidden; border-radius: 20px; }
+  .carousel-wrap { position: relative; max-width: 580px; margin: 0 auto; overflow: hidden; border-radius: 20px; }
   .carousel-track { display: flex; transition: transform 0.4s ease; }
   .carousel-slide { min-width: 100%; }
-  .carousel-slide-inner { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 4px; }
+  .carousel-slide-inner { display: grid; grid-template-columns: 1fr; gap: 0; padding: 0 4px; }
   .carousel-img-card {
     background: transparent;
     border-radius: 16px;
@@ -816,7 +816,7 @@
     <h1>Help Your Child Stop <em>Explosive Anger Outbursts</em> with 80 Fun, Proven Activities</h1>
     <p class="hero-sub">Finally, something that actually works for kids ages 5 to 12 who struggle with anger.</p>
     <!-- MOCKUP PLACEHOLDER -->
-    <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="max-width:520px;width:100%;display:block;margin:0 auto;">
+    <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="width:min(640px,100%);display:block;margin:0 auto;">
   </div>
 </section>
 
@@ -828,31 +828,26 @@
     <p class="section-sub" style="margin-top:16px;">80 real, printable activities and not just theory.</p>
     <div class="carousel-wrap">
       <div class="carousel-track" id="carTrack">
-        <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><img src="https://i.imgur.com/1ougdTT.png" alt="Activity page"></div>
-          <div class="carousel-img-card"><img src="https://i.imgur.com/JyMDkuX.png" alt="Activity page"></div>
-        </div></div>
-        <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><img src="https://i.imgur.com/zjpDkYz.png" alt="Activity page"></div>
-          <div class="carousel-img-card"><img src="https://i.imgur.com/wuZ6o5U.png" alt="Activity page"></div>
-        </div></div>
-        <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><img src="https://i.imgur.com/LjSshBl.png" alt="Activity page"></div>
-          <div class="carousel-img-card"><img src="https://i.imgur.com/So90Cox.png" alt="Activity page"></div>
-        </div></div>
-        <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><img src="https://i.imgur.com/QjfJYqp.png" alt="Activity page"></div>
-          <div class="carousel-img-card"><img src="https://i.imgur.com/1mlP54u.png" alt="Activity page"></div>
-        </div></div>
-        <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><img src="https://i.imgur.com/IhclcEd.png" alt="Activity page"></div>
-          <div class="carousel-img-card"><img src="https://i.imgur.com/V4pYH5w.png" alt="Activity page"></div>
-        </div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/1ougdTT.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/JyMDkuX.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/zjpDkYz.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/wuZ6o5U.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/LjSshBl.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/So90Cox.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/QjfJYqp.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/1mlP54u.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/IhclcEd.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/V4pYH5w.png" alt="Activity page"></div></div></div>
       </div>
       <div class="carousel-controls">
         <button class="car-btn" id="carPrev">‹</button>
         <div class="car-dots" id="carDots">
           <div class="car-dot active"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
           <div class="car-dot"></div>
           <div class="car-dot"></div>
           <div class="car-dot"></div>
@@ -1210,7 +1205,7 @@
   (function(){
     const track = document.getElementById('carTrack');
     const dots = document.querySelectorAll('.car-dot');
-    let cur = 0, total = 5;
+    let cur = 0, total = 10;
     function go(n){ cur = (n + total) % total; track.style.transform = `translateX(-${cur * 100}%)`; dots.forEach((d,i)=>d.classList.toggle('active',i===cur)); }
     document.getElementById('carNext').onclick = ()=>go(cur+1);
     document.getElementById('carPrev').onclick = ()=>go(cur-1);
