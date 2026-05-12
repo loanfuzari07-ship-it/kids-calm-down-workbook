@@ -287,7 +287,7 @@
   }
   .ideal-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     max-width: 780px;
     margin: 0 auto;
@@ -310,7 +310,7 @@
   }
   .testi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     max-width: 780px;
     margin: 0 auto;
@@ -551,24 +551,14 @@
   .carousel-wrap { position: relative; max-width: 780px; margin: 0 auto; overflow: hidden; border-radius: 20px; }
   .carousel-track { display: flex; transition: transform 0.4s ease; }
   .carousel-slide { min-width: 100%; }
-  .carousel-slide-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 4px; }
-  @media(max-width:600px){ .carousel-slide-inner { grid-template-columns: repeat(2,1fr); } }
+  .carousel-slide-inner { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 4px; }
   .carousel-img-card {
-    background: var(--orange-light);
+    background: transparent;
     border-radius: 16px;
-    border: 2px solid #FFD4BC;
-    aspect-ratio: 3/4;
+    overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--orange-dark);
-    text-align: center;
-    padding: 12px;
   }
-  .carousel-img-card .ci { font-size: 36px; }
-  .carousel-img-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+  .carousel-img-card img { width: 100%; height: auto; display: block; object-fit: contain; border-radius: 12px; }
   .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 20px; }
   .car-btn {
     width: 40px; height: 40px;
@@ -599,21 +589,16 @@
   }
   @media(max-width:600px){ .bonus-card-new { grid-template-columns: 80px 1fr; } .bonus-price { grid-column: 1/-1; text-align:left; } }
   .bonus-mockup-img {
-    background: linear-gradient(135deg, rgba(255,210,63,0.2), rgba(255,107,53,0.2));
-    border-radius: 14px;
-    aspect-ratio: 3/4;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 8px;
-    border: 1px dashed rgba(255,255,255,0.2);
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    flex-shrink: 0;
   }
-  .bonus-mockup-img .bm-icon { font-size: 28px; }
-  .bonus-mockup-img img { width:100%; height:100%; object-fit:cover; border-radius:10px; }
+  .bonus-mockup-img img { width:100%; height:auto; display:block; object-fit:contain; }
 
   /* GUARANTEE SEAL */
   .guarantee-seal {
@@ -713,9 +698,9 @@
 
     /* Bonuses */
     .bonuses { padding: 40px 16px; }
-    .bonus-card-new { grid-template-columns: 72px 1fr; gap: 12px; }
+    .bonus-card-new { grid-template-columns: 100px 1fr; gap: 12px; }
     .bonus-card-new .bonus-price { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; }
-    .bonus-mockup-img { border-radius: 10px; }
+    .bonus-mockup-img { width: 100px; }
     .bonus-left h4 { font-size: 14px; }
     .bonus-left p { font-size: 12px; }
 
@@ -779,7 +764,7 @@
     <h1>Help Your Child Stop <em>Explosive Anger Outbursts</em> with 80 Fun, Proven Activities</h1>
     <p class="hero-sub">Finally, something that actually works for kids who struggle with anger.</p>
     <!-- MOCKUP PLACEHOLDER -->
-    <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="max-width:340px;width:100%;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,0.15);display:block;margin:0 auto;">
+    <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="max-width:380px;width:100%;display:block;margin:0 auto;">
   </div>
 </section>
 
@@ -792,25 +777,34 @@
     <div class="carousel-wrap">
       <div class="carousel-track" id="carTrack">
         <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><div class="ci">😤</div>[Insert page image]<br>Anger Triggers</div>
-          <div class="carousel-img-card"><div class="ci">🚦</div>[Insert page image]<br>Stop, Think, Do</div>
-          <div class="carousel-img-card"><div class="ci">📊</div>[Insert page image]<br>Anger Scales</div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/1ougdTT.png" alt="Activity page"></div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/JyMDkuX.png" alt="Activity page"></div>
         </div></div>
         <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><div class="ci">🧘</div>[Insert page image]<br>Breathing & Yoga</div>
-          <div class="carousel-img-card"><div class="ci">🧩</div>[Insert page image]<br>Problem Solving</div>
-          <div class="carousel-img-card"><div class="ci">✍️</div>[Insert page image]<br>Anger Journal</div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/zjpDkYz.png" alt="Activity page"></div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/wuZ6o5U.png" alt="Activity page"></div>
         </div></div>
         <div class="carousel-slide"><div class="carousel-slide-inner">
-          <div class="carousel-img-card"><div class="ci">🤗</div>[Insert page image]<br>Sensory Strategies</div>
-          <div class="carousel-img-card"><div class="ci">🎨</div>[Insert page image]<br>Calm-Down Pages</div>
-          <div class="carousel-img-card"><div class="ci">💪</div>[Insert page image]<br>Coping Cards</div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/LjSshBl.png" alt="Activity page"></div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/So90Cox.png" alt="Activity page"></div>
+        </div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner">
+          <div class="carousel-img-card"><img src="https://i.imgur.com/QjfJYqp.png" alt="Activity page"></div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/1mlP54u.png" alt="Activity page"></div>
+        </div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner">
+          <div class="carousel-img-card"><img src="https://i.imgur.com/IhclcEd.png" alt="Activity page"></div>
+          <div class="carousel-img-card"><img src="https://i.imgur.com/V4pYH5w.png" alt="Activity page"></div>
         </div></div>
       </div>
       <div class="carousel-controls">
         <button class="car-btn" id="carPrev">‹</button>
         <div class="car-dots" id="carDots">
-          <div class="car-dot active"></div><div class="car-dot"></div><div class="car-dot"></div>
+          <div class="car-dot active"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
         </div>
         <button class="car-btn" id="carNext">›</button>
       </div>
@@ -962,7 +956,7 @@
     <br><br>
     <div class="inside-wrap">
       <div class="inside-mockup" style="background:transparent;border:none;padding:0;">
-        <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="width:100%;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.12);">
+        <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="width:100%;display:block;">
       </div>
       <div class="inside-content">
         <h3>Kids Calm Down Workbook</h3>
@@ -991,7 +985,7 @@
     <p class="section-sub">Everything below comes with your copy today.</p>
     <div class="bonus-list">
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/CEa51Uz.png" alt="Emotions & Feelings Journal" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/CEa51Uz.png" alt="Emotions & Feelings Journal" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
         <div class="bonus-left">
           <div class="bonus-num">1</div>
           <div>
@@ -1002,7 +996,7 @@
         <div class="bonus-price"><div class="val">$17 value</div><div class="free">FREE</div></div>
       </div>
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/HxotJpc.png" alt="30 Emotions Coloring Pages" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/HxotJpc.png" alt="30 Emotions Coloring Pages" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
         <div class="bonus-left">
           <div class="bonus-num">2</div>
           <div>
@@ -1013,7 +1007,7 @@
         <div class="bonus-price"><div class="val">$17 value</div><div class="free">FREE</div></div>
       </div>
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/RUEJsWq.png" alt="71 Printable Calm Down Cards" style="width:100%;height:100%;object-fit:cover;border-radius:10px;"></div>
+        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/RUEJsWq.png" alt="71 Printable Calm Down Cards" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
         <div class="bonus-left">
           <div class="bonus-num">3</div>
           <div>
@@ -1160,7 +1154,7 @@
   (function(){
     const track = document.getElementById('carTrack');
     const dots = document.querySelectorAll('.car-dot');
-    let cur = 0, total = 3;
+    let cur = 0, total = 5;
     function go(n){ cur = (n + total) % total; track.style.transform = `translateX(-${cur * 100}%)`; dots.forEach((d,i)=>d.classList.toggle('active',i===cur)); }
     document.getElementById('carNext').onclick = ()=>go(cur+1);
     document.getElementById('carPrev').onclick = ()=>go(cur-1);
