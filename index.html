@@ -824,10 +824,32 @@
     <div class="divider"></div>
     <p class="section-sub" style="margin-top:16px;">80 real, printable activities and not just theory.</p>
     <div class="carousel-wrap">
-      <div class="carousel-track" id="carTrack"></div>
+      <div class="carousel-track" id="carTrack">
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/1ougdTT.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/JyMDkuX.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/zjpDkYz.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/wuZ6o5U.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/LjSshBl.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/So90Cox.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/QjfJYqp.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/1mlP54u.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/IhclcEd.png" alt="Activity page"></div></div></div>
+        <div class="carousel-slide"><div class="carousel-slide-inner"><div class="carousel-img-card"><img src="https://i.imgur.com/V4pYH5w.png" alt="Activity page"></div></div></div>
+      </div>
       <div class="carousel-controls">
         <button class="car-btn" id="carPrev">‹</button>
-        <div class="car-dots" id="carDots"></div>
+        <div class="car-dots" id="carDots">
+          <div class="car-dot active"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+          <div class="car-dot"></div>
+        </div>
         <button class="car-btn" id="carNext">›</button>
       </div>
     </div>
@@ -1177,86 +1199,15 @@
   startCountdown();
 
   // Carousel
-  // Carousel - responsive: 1 per slide mobile, 2 per slide desktop
   (function(){
-    const images = [
-      'https://i.imgur.com/1ougdTT.png',
-      'https://i.imgur.com/JyMDkuX.png',
-      'https://i.imgur.com/zjpDkYz.png',
-      'https://i.imgur.com/wuZ6o5U.png',
-      'https://i.imgur.com/LjSshBl.png',
-      'https://i.imgur.com/So90Cox.png',
-      'https://i.imgur.com/QjfJYqp.png',
-      'https://i.imgur.com/1mlP54u.png',
-      'https://i.imgur.com/IhclcEd.png',
-      'https://i.imgur.com/V4pYH5w.png',
-    ];
-
     const track = document.getElementById('carTrack');
-    const dotsWrap = document.getElementById('carDots');
-    let cur = 0, total = 0, autoTimer = null;
-
-    function isMobile(){ return window.innerWidth <= 640; }
-
-    function buildSlides(){
-      const perSlide = isMobile() ? 1 : 2;
-      total = Math.ceil(images.length / perSlide);
-      cur = 0;
-
-      track.innerHTML = '';
-      dotsWrap.innerHTML = '';
-
-      for(let i = 0; i < total; i++){
-        const slide = document.createElement('div');
-        slide.className = 'carousel-slide';
-        const inner = document.createElement('div');
-        inner.className = 'carousel-slide-inner';
-        inner.style.gridTemplateColumns = perSlide === 1 ? '1fr' : 'repeat(2,1fr)';
-
-        const chunk = images.slice(i * perSlide, i * perSlide + perSlide);
-        chunk.forEach(src => {
-          const card = document.createElement('div');
-          card.className = 'carousel-img-card';
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = 'Activity page';
-          card.appendChild(img);
-          inner.appendChild(card);
-        });
-
-        slide.appendChild(inner);
-        track.appendChild(slide);
-
-        const dot = document.createElement('div');
-        dot.className = 'car-dot' + (i === 0 ? ' active' : '');
-        dot.onclick = () => go(i);
-        dotsWrap.appendChild(dot);
-      }
-
-      go(0);
-    }
-
-    function go(n){
-      cur = (n + total) % total;
-      track.style.transform = `translateX(-${cur * 100}%)`;
-      dotsWrap.querySelectorAll('.car-dot').forEach((d,i) => d.classList.toggle('active', i === cur));
-    }
-
-    document.getElementById('carNext').onclick = () => go(cur + 1);
-    document.getElementById('carPrev').onclick = () => go(cur - 1);
-
-    function startAuto(){ autoTimer = setInterval(() => go(cur + 1), 4000); }
-    function stopAuto(){ clearInterval(autoTimer); }
-
-    buildSlides();
-    startAuto();
-
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      stopAuto();
-      resizeTimer = setTimeout(() => { buildSlides(); startAuto(); }, 200);
-    });
+    const dots = document.querySelectorAll('.car-dot');
+    let cur = 0, total = 10;
+    function go(n){ cur = (n + total) % total; track.style.transform = `translateX(-${cur * 100}%)`; dots.forEach((d,i)=>d.classList.toggle('active',i===cur)); }
+    document.getElementById('carNext').onclick = ()=>go(cur+1);
+    document.getElementById('carPrev').onclick = ()=>go(cur-1);
+    dots.forEach((d,i)=>d.onclick=()=>go(i));
+    setInterval(()=>go(cur+1), 4000);
   })();
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
