@@ -340,52 +340,96 @@
   .testi-name { font-size: 13px; font-weight: 800; }
   .testi-role { font-size: 11px; color: var(--gray); }
 
-  /* BLOCK 8 - WHAT YOU GET */
+  /* BLOCK 8 - WHATS INSIDE - NEW CARD STYLE */
   .whats-inside {
-    background: white;
+    background: var(--light-gray);
     padding: 60px 20px;
   }
-  .inside-wrap {
+  .inside-card {
     max-width: 780px;
     margin: 0 auto;
+    background: #1A1A2E;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+  }
+  .inside-card-tag {
+    background: var(--orange);
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    display: inline-block;
+    border-radius: 0 0 12px 0;
+  }
+  .inside-card-body {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
+    grid-template-columns: 220px 1fr;
+    gap: 0;
+    align-items: stretch;
   }
-  @media (max-width: 600px) { .inside-wrap { grid-template-columns: 1fr; } }
-  .inside-mockup {
-    background: linear-gradient(135deg, #FFE8DC, #FFD4BC);
-    border-radius: 20px;
-    padding: 40px 20px;
-    text-align: center;
-    border: 3px dashed var(--orange);
-    color: var(--orange-dark);
-    font-weight: 700;
-    font-size: 13px;
+  .inside-card-mockup {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.04);
+    border-right: 1px solid rgba(255,255,255,0.08);
   }
-  .inside-mockup .mock-icon { font-size: 48px; margin-bottom: 8px; }
-  .inside-content h3 {
-    font-family: 'Poppins', sans-serif; font-weight: 800;
-    font-size: 22px;
+  .inside-card-mockup img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+  .inside-card-content {
+    background: white;
+    padding: 28px 28px;
+    border-radius: 0 0 24px 0;
+  }
+  .inside-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
     color: var(--dark);
-    margin-bottom: 20px;
+    margin-bottom: 4px;
   }
-  .inside-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .inside-list li {
+  .inside-card-sub {
+    font-size: 12px;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .inside-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .inside-checklist li {
     display: flex;
     gap: 10px;
     align-items: flex-start;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #374151;
     line-height: 1.4;
   }
-  .inside-list li::before {
+  .inside-checklist li::before {
     content: '✅';
-    font-size: 14px;
+    font-size: 13px;
     flex-shrink: 0;
     margin-top: 1px;
+  }
+  @media (max-width: 640px) {
+    .inside-card-body { grid-template-columns: 1fr; }
+    .inside-card-mockup { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 24px 40px; }
+    .inside-card-content { border-radius: 0 0 24px 24px; padding: 24px 20px; }
   }
 
   /* BLOCK 9 - BONUSES */
@@ -962,25 +1006,29 @@
     <h2 class="section-label" style="text-align:center">Everything Inside the <em>Workbook</em></h2>
     <div class="divider"></div>
     <br><br>
-    <div class="inside-wrap">
-      <div class="inside-mockup" style="background:transparent;border:none;padding:0;">
-        <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="width:100%;display:block;">
-      </div>
-      <div class="inside-content">
-        <h3>Kids Calm Down Workbook</h3>
-        <ul class="inside-list">
-          <li>Understanding Anger and The Anger Cycle</li>
-          <li>Anger Triggers: what sets my child off</li>
-          <li>Anger Signs: reading body signals early</li>
-          <li>My Anger Response journal pages</li>
-          <li>Coping Strategies: Problem Solving, Self-Instructions, Help and Sharing</li>
-          <li>Breathing Techniques and Relaxation pages</li>
-          <li>Taking a Break and Burn It Out activities</li>
-          <li>Dealing with My Thoughts worksheets</li>
-          <li>Sensory Strategies, Massage and Yoga pages</li>
-          <li>Daily Anger Journal for ongoing reflection</li>
-          <li>Anger Scales visual tools</li>
-        </ul>
+    <div class="inside-card">
+      <div class="inside-card-body">
+        <div class="inside-card-mockup">
+          <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook">
+        </div>
+        <div class="inside-card-content">
+          <h3 class="inside-card-title">Kids Calm Down Workbook</h3>
+          <p class="inside-card-sub">80 Activities · Printable</p>
+          <ul class="inside-checklist">
+            <li>Understanding Anger and The Anger Cycle</li>
+            <li>Anger Triggers: what sets my child off</li>
+            <li>Anger Signs: reading body signals early</li>
+            <li>My Anger Response journal pages</li>
+            <li>Coping Strategies: Problem Solving, Self-Instructions, Help and Sharing</li>
+            <li>Breathing Techniques and Relaxation pages</li>
+            <li>Taking a Break and Burn It Out activities</li>
+            <li>Dealing with My Thoughts worksheets</li>
+            <li>Sensory Strategies, Massage and Yoga pages</li>
+            <li>Daily Anger Journal for ongoing reflection</li>
+            <li>Anger Scales visual tools</li>
+          </ul>
+          <p class="inside-card-sub" style="text-align:center;margin-top:14px;margin-bottom:0;">And much more...</p>
+        </div>
       </div>
     </div>
   </div>
