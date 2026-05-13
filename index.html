@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kids Calm Down Workbook</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -275,10 +278,11 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     transition: transform 0.2s, box-shadow 0.2s;
     animation: bounce-btn 2s infinite;
+  will-change: transform;
   }
   @keyframes bounce-btn {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+    0%, 100% { transform: translateY(0) translateZ(0); }
+    50% { transform: translateY(-4px) translateZ(0); }
   }
   .btn-cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 32px rgba(0,0,0,0.25); animation: none; }
   .btn-sub { color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 12px; }
@@ -813,7 +817,7 @@
     <h1>Help Your Child Stop <em>Explosive Anger Outbursts</em> with 80 Fun, Proven Activities</h1>
     <p class="hero-sub">Finally, something that actually works for kids ages 5 to 12 who struggle with anger.</p>
     <!-- MOCKUP PLACEHOLDER -->
-    <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook" style="width:min(640px,100%);display:block;margin:0 auto;">
+    <img src="/images/hero.webp" fetchpriority="high" width="520" height="600" alt="Kids Calm Down Workbook" style="width:min(640px,100%);display:block;margin:0 auto;">
   </div>
 </section>
 
@@ -909,7 +913,7 @@
   <div class="container">
     <h2>Start today and see the difference by the weekend.</h2>
     
-    <a href="#offer" class="btn-cta">👇 YES! I Want Calmer Kids Now →</a>
+    <a href="#whats-inside" class="btn-cta">👇 YES! I Want Calmer Kids Now →</a>
     <p class="btn-sub">🔒 Instant Download · 60-Day Money Back Guarantee and no subscription</p>
   </div>
 </section>
@@ -971,7 +975,7 @@
     </div>
   </div>
 </section>
-<section class="whats-inside">
+<section class="whats-inside" id="whats-inside">
   <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
     <h2 class="section-label" style="text-align:center">Everything Inside the <em>Workbook</em></h2>
     <div class="divider"></div>
@@ -979,7 +983,7 @@
     <div class="inside-card">
       <div class="inside-card-body">
         <div class="inside-card-mockup">
-          <img src="https://i.imgur.com/yvQZHwl.png" alt="Kids Calm Down Workbook">
+          <img src="/images/hero.webp" fetchpriority="high" width="520" height="600" alt="Kids Calm Down Workbook">
         </div>
         <div class="inside-card-content">
           <h3 class="inside-card-title">Kids Calm Down Workbook</h3>
@@ -1011,7 +1015,7 @@
     <p class="section-sub">Everything below comes with your copy today.</p>
     <div class="bonus-list">
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/CEa51Uz.png" alt="Emotions & Feelings Journal" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
+        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img loading="lazy" src="/images/bonus-feelings-journal.webp" alt="Emotions & Feelings Journal" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
         <div class="bonus-left">
           <div class="bonus-num">1</div>
           <div>
@@ -1022,7 +1026,7 @@
         <div class="bonus-price"><div class="val">$17 value</div><div class="free">FREE</div></div>
       </div>
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/HxotJpc.png" alt="30 Emotions Coloring Pages" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
+        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img loading="lazy" src="/images/bonus-coloring-pages.webp" alt="30 Emotions Coloring Pages" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
         <div class="bonus-left">
           <div class="bonus-num">2</div>
           <div>
@@ -1033,7 +1037,7 @@
         <div class="bonus-price"><div class="val">$17 value</div><div class="free">FREE</div></div>
       </div>
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img src="https://i.imgur.com/RUEJsWq.png" alt="71 Printable Calm Down Cards" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
+        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img loading="lazy" src="/images/bonus-calm-cards.webp" alt="71 Printable Calm Down Cards" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
         <div class="bonus-left">
           <div class="bonus-num">3</div>
           <div>
@@ -1054,7 +1058,7 @@
     <div class="offer-box">
       <h2>Everything You Get Today</h2>
       <div style="margin: 0 0 24px;">
-        <img src="https://i.imgur.com/GQoJsnM.png" alt="Kids Calm Down Workbook Bundle" style="width:100%;max-width:480px;border-radius:16px;display:block;margin:0 auto;">
+        <img loading="lazy" src="/images/bundle.webp" alt="Kids Calm Down Workbook Bundle" style="width:100%;max-width:480px;border-radius:16px;display:block;margin:0 auto;">
       </div>
       <div class="offer-lines">
         <div class="offer-line"><span class="item-name">✅ Kids Calm Down Workbook (80 activities)</span><span class="item-val">$37</span></div>
@@ -1180,16 +1184,16 @@
   // Carousel - responsive: 1 per slide mobile, 2 per slide desktop
   (function(){
     const images = [
-      'https://i.imgur.com/1ougdTT.png',
-      'https://i.imgur.com/JyMDkuX.png',
-      'https://i.imgur.com/zjpDkYz.png',
-      'https://i.imgur.com/wuZ6o5U.png',
-      'https://i.imgur.com/LjSshBl.png',
-      'https://i.imgur.com/So90Cox.png',
-      'https://i.imgur.com/QjfJYqp.png',
-      'https://i.imgur.com/1mlP54u.png',
-      'https://i.imgur.com/IhclcEd.png',
-      'https://i.imgur.com/V4pYH5w.png',
+      '/images/slide-1.webp',
+      '/images/slide-2.webp',
+      '/images/slide-3.webp',
+      '/images/slide-4.webp',
+      '/images/slide-5.webp',
+      '/images/slide-6.webp',
+      '/images/slide-7.webp',
+      '/images/slide-8.webp',
+      '/images/slide-9.webp',
+      '/images/slide-10.webp',
     ];
 
     const track = document.getElementById('carTrack');
@@ -1220,6 +1224,9 @@
           const img = document.createElement('img');
           img.src = src;
           img.alt = 'Activity page';
+          img.width = 400;
+          img.height = 520;
+          img.loading = 'lazy';
           card.appendChild(img);
           inner.appendChild(card);
         });
