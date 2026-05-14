@@ -125,6 +125,7 @@
     max-width: 680px;
     margin-left: auto;
     margin-right: auto;
+    text-transform: uppercase;
   }
   .hero h1 em {
     color: var(--orange);
@@ -132,12 +133,39 @@
   }
   .hero-sub {
     font-size: clamp(16px, 2.5vw, 20px);
-    color: rgba(255,255,255,0.85);
+    color: #FFFFFF;
     max-width: 560px;
     margin: 0 auto 32px;
     font-weight: 700;
   }
   .hero-sub strong { color: var(--orange-dark); }
+  .hero-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 20px;
+  }
+  .hero-old-price {
+    font-size: 22px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: line-through;
+    font-weight: 700;
+  }
+  .hero-only-today {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--yellow);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero-new-price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    color: #22C55E;
+    line-height: 1;
+  }
   .hero img {
     width: min(580px, 100%);
     height: auto;
@@ -168,6 +196,7 @@
     font-size: clamp(22px, 4vw, 34px);
     color: var(--dark);
     margin-bottom: 8px;
+    text-transform: uppercase;
   }
   .section-label em { color: var(--orange); font-style: normal; }
   .section-sub {
@@ -306,7 +335,8 @@
     50% { transform: translateY(-4px) translateZ(0); }
   }
   .btn-cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 32px rgba(0,0,0,0.25); animation: none; }
-  .btn-sub { color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 12px; }
+  .btn-sub { color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 12px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .btn-sub-item { display: flex; align-items: center; gap: 5px; }
 
   /* BLOCK 6 - IDEAL FOR */
   .ideal {
@@ -454,45 +484,52 @@
     .inside-card-content { border-radius: 0 0 24px 24px; padding: 24px 20px; }
   }
 
-  /* BLOCK 9 - BONUSES */
+  /* BLOCK 9 - BONUSES REDESIGN */
   .bonuses {
-    background: var(--purple);
+    background: #F8F9FA;
     padding: 60px 20px;
-    color: white;
+    color: var(--dark);
   }
-  .bonuses .section-label { color: white; }
-  .bonuses .section-sub { color: rgba(255,255,255,0.7); }
-  .bonus-list { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-  .bonus-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    padding: 20px 24px;
+  .bonuses .section-label { color: var(--dark); }
+  .bonuses .section-sub { color: var(--gray); }
+  .bonus-list { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .bonus-card-new {
+    background: #16213E;
+    border-radius: 20px;
+    padding: 28px 24px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 16px;
-    flex-wrap: wrap;
   }
-  .bonus-left { display: flex; gap: 14px; align-items: flex-start; flex: 1; }
-  .bonus-num {
+  .bonus-label {
     background: var(--yellow);
     color: var(--dark);
-    font-family: 'Poppins', sans-serif; font-weight: 800;
-    font-size: 18px;
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 6px 20px;
+    border-radius: 100px;
+    letter-spacing: 0.06em;
   }
-  .bonus-left h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
-  .bonus-left p { font-size: 13px; color: rgba(255,255,255,0.7); }
-  .bonus-price {
-    text-align: right;
-    flex-shrink: 0;
+  .bonus-mockup-img {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
   }
-  .bonus-price .val { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: line-through; }
-  .bonus-price .free { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; color: var(--yellow); }
+  .bonus-mockup-img img { width:100%; height:auto; display:block; object-fit:contain; }
+  .bonus-left { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .bonus-left h4 { font-size: 14px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 0.04em; }
+  .bonus-left p { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+  .bonus-price { text-align: center; margin-top: auto; }
+  .bonus-price .val { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: line-through; }
+  .bonus-price .free { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 22px; color: var(--yellow); }
+  @media(max-width: 640px) {
+    .bonus-list { grid-template-columns: 1fr; max-width: 380px; }
+    .bonus-card-new { padding: 24px 20px; }
+  }
 
   /* BLOCK 10 - OFFER */
   .offer {
@@ -646,28 +683,8 @@
   .car-dot.active { background: var(--orange); }
 
   /* BONUS REDESIGN */
-  .bonus-card-new {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 24px;
-    display: grid;
-    grid-template-columns: 120px 1fr auto;
-    gap: 20px;
-    align-items: center;
-  }
-  @media(max-width:600px){ .bonus-card-new { grid-template-columns: 80px 1fr; } .bonus-price { grid-column: 1/-1; text-align:left; } }
-  .bonus-mockup-img {
-    background: transparent;
-    border: none;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    flex-shrink: 0;
-  }
-  .bonus-mockup-img img { width:100%; height:auto; display:block; object-fit:contain; }
+
+
 
   /* GUARANTEE SEAL */
   .guarantee-seal {
@@ -795,6 +812,9 @@
     /* Guarantee */
     .guarantee { padding: 40px 16px; }
     .guarantee-box { padding: 28px 20px; }
+    .guarantee-box > div[style*="grid"] { grid-template-columns: 1fr !important; text-align: center !important; }
+    .guarantee-box > div[style*="grid"] > div[style*="margin:0"] { margin: 0 auto !important; }
+    .guarantee-box h3 { text-align: center !important; }
     .guarantee-seal { width: 96px; height: 96px; }
     .seal-days { font-size: 28px; }
 
@@ -814,6 +834,9 @@
     .hero::before, .hero::after { display: none; }
   }
 
+  @media (max-width: 640px) {
+    .two-paths-grid { grid-template-columns: 1fr !important; }
+  }
   @media (max-width: 380px) {
     .hero h1 { font-size: 22px; }
     .btn-cta { font-size: 14px; padding: 13px 22px; }
@@ -827,18 +850,22 @@
 
 <!-- URGENCY BAR -->
 <div class="urgency-bar">
-  ⚡ LIMITED TIME OFFER: <span>Save 82% Today Only!</span>
+  ⚡ THIS <span>90% OFF</span> OFFER ENDS SOON
   <span class="countdown" id="countdown">23:47:12</span>
 </div>
 
 <!-- BLOCK 1: HEADLINE -->
 <section class="hero">
   <div class="container">
-    <div class="hero-tag">⭐ Over 5,000 Families Already Using This</div>
-    <h1>Help Your Child Stop <em>Explosive Anger Outbursts</em> with 80 Fun, Proven Activities</h1>
-    <p class="hero-sub">Finally, something that actually works for kids who struggle with anger.</p>
+    <h1>80 Simple Activities to Help Your Child Manage Anger Outbursts and Develop Self Control <em>10x Faster</em></h1>
     <!-- MOCKUP PLACEHOLDER -->
     <img src="/images/hero.webp" fetchpriority="high" alt="Kids Calm Down Workbook" style="width:min(640px,100%);display:block;margin:0 auto;">
+    <p class="hero-sub">A practical solution with fun, easy to use activities designed to reduce tantrums and teach self control without yelling, fighting, or punishment.</p>
+    <div class="hero-price">
+      <span class="hero-old-price">$97</span>
+      <span class="hero-only-today">ONLY TODAY</span>
+      <span class="hero-new-price">$9,90</span>
+    </div>
   </div>
 </section>
 
@@ -847,7 +874,6 @@
   <div class="container">
     <h2 class="section-label">See Some of the Materials <em>You'll Receive</em></h2>
     <div class="divider"></div>
-    <p class="section-sub" style="margin-top:16px;">80 real, printable activities and not just theory.</p>
     <div class="carousel-wrap">
       <div class="carousel-track" id="carTrack"></div>
       <div class="carousel-controls">
@@ -923,8 +949,7 @@
       <div class="who-item"><div class="check">✓</div>You've tried punishments and timeouts and nothing seems to stick</div>
       <div class="who-item"><div class="check">✓</div>Your kid struggles to put their big feelings into words</div>
       <div class="who-item"><div class="check">✓</div>You want a calm, structured way to work through emotions together</div>
-      <div class="who-item"><div class="check">✓</div>You're a teacher or counselor looking for ready-to-use classroom tools</div>
-      <div class="who-item"><div class="check">✓</div>You want real activities instead of advice on what you "should" do</div>
+      <div class="who-item"><div class="check">✓</div>You want practical activities instead of just advice on what to do</div>
     </div>
   </div>
 </section>
@@ -932,24 +957,27 @@
 <!-- BLOCK 5: URGENCY CTA -->
 <section class="urgency-cta">
   <div class="container">
-    <h2>Start today and see the difference by the weekend.</h2>
+    <h2>Your child's anger outbursts can start getting calmer this week!</h2>
     
     <a href="#whats-inside" class="btn-cta">👇 YES! I Want Calmer Kids Now →</a>
-    <p class="btn-sub">🔒 Instant Download · 60-Day Money Back Guarantee and no subscription</p>
+    <p class="btn-sub">
+      <span class="btn-sub-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Instant Download</span>
+      <span class="btn-sub-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> PDF Material</span>
+    </p>
   </div>
 </section>
 
 <!-- BLOCK 6: IDEAL FOR -->
 <section class="ideal">
   <div class="container">
-    <h2 class="section-label">Perfect If You Want Your Child To...</h2>
+    <h2 class="section-label">Ideal If You Want Your Child To...</h2>
     <div class="divider"></div>
     <br><br>
     <div class="ideal-grid">
-      <div class="ideal-card"><div class="icon">😌</div><h4>Feel calm, not controlled</h4><p>Give them tools they actually own and not rules imposed from outside.</p></div>
-      <div class="ideal-card"><div class="icon">🤝</div><h4>Handle conflict without hitting</h4><p>Replace physical reactions with words, breathing, and problem-solving.</p></div>
-      <div class="ideal-card"><div class="icon">💪</div><h4>Build real emotional resilience</h4><p>Skills that work now that carry into adulthood.</p></div>
-      <div class="ideal-card"><div class="icon">🌈</div><h4>Have a better day, every day</h4><p>Fewer meltdowns means a calmer home for the whole family.</p></div>
+      <div class="ideal-card"><div class="icon">😤</div><h4>Stop throwing tantrums over every little thing</h4><p>Help your child respond more calmly to frustration, changes in routine, and everyday "no's."</p></div>
+      <div class="ideal-card"><div class="icon">🧠</div><h4>Learn to manage their emotions</h4><p>Teach them, in a simple and fun way, how to recognize feelings, breathe, express themselves, and regain control.</p></div>
+      <div class="ideal-card"><div class="icon">💪</div><h4>Build real emotional resilience</h4><p>Practical activities that help your child handle challenges, disappointment, and difficult moments with more confidence.</p></div>
+      <div class="ideal-card"><div class="icon">☀️</div><h4>Have a better day, every day</h4><p>Fewer meltdowns, more cooperation, and a calmer routine for your child and the whole family.</p></div>
     </div>
   </div>
 </section>
@@ -957,7 +985,7 @@
 <!-- BLOCK 7: TESTIMONIALS -->
 <section class="testimonials">
   <div class="container">
-    <h2 class="section-label">What <em>Real Parents</em> Are Saying</h2>
+    <h2 class="section-label">WHO IS ALREADY USING THE <em>Kids Calm Down Workbook</em></h2>
     <div class="divider"></div>
     <br><br>
     <div class="testi-grid">
@@ -979,7 +1007,7 @@
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p>"We've spent hundreds on therapy and toys. This $17 workbook did more in one month than anything else. The Stop-Think-Do cards are now on our fridge and my daughter uses them herself."</p>
+        <p>"We've spent hundreds on therapy and toys. This workbook did more in one month than anything else. The Stop-Think-Do cards are now on our fridge and my daughter uses them herself."</p>
         <div class="testi-author">
           <div class="testi-avatar">JM</div>
           <div><div class="testi-name">Jennifer M.</div><div class="testi-role">Mom of two, Ohio</div></div>
@@ -1010,17 +1038,13 @@
           <h3 class="inside-card-title">Kids Calm Down Workbook</h3>
           <p class="inside-card-sub">80 Activities · Printable</p>
           <ul class="inside-checklist">
-            <li>Understanding Anger and The Anger Cycle</li>
-            <li>Anger Triggers: what sets my child off</li>
-            <li>Anger Signs: reading body signals early</li>
-            <li>My Anger Response journal pages</li>
-            <li>Coping Strategies: Problem Solving, Self-Instructions, Help and Sharing</li>
-            <li>Breathing Techniques and Relaxation pages</li>
-            <li>Taking a Break and Burn It Out activities</li>
-            <li>Dealing with My Thoughts worksheets</li>
-            <li>Sensory Strategies, Massage and Yoga pages</li>
-            <li>Daily Anger Journal for ongoing reflection</li>
-            <li>Anger Scales visual tools</li>
+            <li>80 practical emotional self control activities</li>
+            <li>Easy to understand explanations about anger and its cycle</li>
+            <li>Guided activities to identify triggers, warning signs, and responses</li>
+            <li>Kid friendly coping activities and strategies, such as breathing, breaks, problem solving, and more</li>
+            <li>Relaxation techniques, including yoga, massage, and sensory activities</li>
+            <li>An anger journal for daily reflection</li>
+            <li>Visual anger scale tools</li>
           </ul>
           <p class="inside-card-sub" style="text-align:center;margin-top:14px;margin-bottom:0;">And much more...</p>
         </div>
@@ -1032,43 +1056,36 @@
 <!-- BLOCK 9: BONUSES -->
 <section class="bonuses">
   <div class="container">
-    <h2 class="section-label">And You Also Get These <em style="color:var(--yellow)">3 Free Bonuses</em></h2>
-    <p class="section-sub">Everything below comes with your copy today.</p>
+    <h2 class="section-label">ORDER TODAY AND GET THESE <em style="color:var(--orange)">3 BONUSES FOR FREE</em></h2>
+    <br>
     <div class="bonus-list">
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img loading="lazy" src="/images/bonus-feelings-journal.webp" alt="Emotions & Feelings Journal" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
+        <div class="bonus-label">BONUS #1</div>
+        <div class="bonus-mockup-img"><img loading="lazy" src="/images/bonus-feelings-journal.webp" alt="Emotions & Feelings Journal" width="200" height="260"></div>
         <div class="bonus-left">
-          <div class="bonus-num">1</div>
-          <div>
-            <h4>Emotions & Feelings Journal</h4>
-            <p>A dedicated journal where kids explore, draw, and name their emotions and help them build the words to express what they feel.</p>
-          </div>
+          <h4>Emotions & Feelings Journal</h4>
+          <p>A dedicated journal where kids explore, draw, and name their emotions and help them build the words to express what they feel.</p>
         </div>
         <div class="bonus-price"><div class="val">$17 value</div><div class="free">FREE</div></div>
       </div>
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img loading="lazy" src="/images/bonus-coloring-pages.webp" alt="30 Emotions Coloring Pages" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
+        <div class="bonus-label">BONUS #2</div>
+        <div class="bonus-mockup-img"><img loading="lazy" src="/images/bonus-coloring-pages.webp" alt="30 Emotions Coloring Pages" width="200" height="260"></div>
         <div class="bonus-left">
-          <div class="bonus-num">2</div>
-          <div>
-            <h4>30 Emotions Coloring Pages</h4>
-            <p>Printable coloring pages that teach emotional recognition through creative expression Kids absolutely love them.</p>
-          </div>
+          <h4>30 Emotions Coloring Pages</h4>
+          <p>Printable coloring pages that teach emotional recognition through creative expression. Kids absolutely love them.</p>
         </div>
         <div class="bonus-price"><div class="val">$17 value</div><div class="free">FREE</div></div>
       </div>
       <div class="bonus-card-new">
-        <div class="bonus-mockup-img" style="background:transparent;border:none;padding:0;"><img loading="lazy" src="/images/bonus-calm-cards.webp" alt="71 Printable Calm Down Cards" style="width:100%;height:auto;display:block;object-fit:contain;"></div>
+        <div class="bonus-label">BONUS #3</div>
+        <div class="bonus-mockup-img"><img loading="lazy" src="/images/bonus-calm-cards.webp" alt="71 Printable Calm Down Cards" width="200" height="260"></div>
         <div class="bonus-left">
-          <div class="bonus-num">3</div>
-          <div>
-            <h4>71 Printable Calm Down Cards</h4>
-            <p>The ultimate toolkit for in-the-moment anger management. Put them on the fridge, in the bedroom or in the car.</p>
-          </div>
+          <h4>71 Printable Calm Down Cards</h4>
+          <p>The ultimate toolkit for in-the-moment anger management. Put them on the fridge, in the bedroom or in the car.</p>
         </div>
         <div class="bonus-price"><div class="val">$27 value</div><div class="free">FREE</div></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1077,29 +1094,31 @@
 <section class="offer" id="offer">
   <div class="container">
     <div class="offer-box">
-      <h2>Everything You Get Today</h2>
+      <h2>Everything You Get Only Today</h2>
       <div style="margin: 0 0 24px;">
         <img loading="lazy" src="/images/bundle.webp" alt="Kids Calm Down Workbook Bundle" style="width:100%;max-width:480px;border-radius:16px;display:block;margin:0 auto;">
       </div>
       <div class="offer-lines">
         <div class="offer-line"><span class="item-name">✅ Kids Calm Down Workbook (80 activities)</span><span class="item-val">$37</span></div>
         <div class="offer-line"><span class="item-name">✅ Bonus 1: Emotions & Feelings Journal</span><span class="item-val">$17</span></div>
-        <div class="offer-line"><span class="item-name">✅ Bonus 2: 30 Emotions Coloring Pages</span><span class="item-val">$17</span></div>
+        <div class="offer-line"><span class="item-name">✅ Bonus 2: 30 Emotions Coloring Pages</span><span class="item-val">$16</span></div>
         <div class="offer-line"><span class="item-name">✅ Bonus 3: 71 Printable Calm Down Cards</span><span class="item-val">$27</span></div>
         <div class="offer-line"><span class="item-name">✅ 60-Day Money Back Guarantee</span><span class="item-val">Priceless</span></div>
       </div>
       <div class="offer-price-block">
-        <div class="old-price">Total Value: $98</div>
-        <div class="new-price"><sup>$</sup>17</div>
-        <div class="price-note">One-time payment · Instant download · No subscription</div>
+        <div class="old-price">Total Value: $97</div>
+        <div class="new-price" style="color:#22C55E;"><sup>$</sup>9,90</div>
+        <div class="price-note">One-time payment &nbsp;•&nbsp; Lifetime Access</div>
       </div>
-      <a href="https://pay.mycheckoutt.com/019e2207-e6ab-70ec-9be3-ecd37de4e024?ref=" class="btn-cta">🔥 Get Instant Access for $17</a>
+      <a href="https://pay.digitalgoat.com.br/checkout/cmp640w80004c1qoy0tqtjaag?offer=QIY5KUE" class="btn-cta" style="background:#16A34A;color:white;text-shadow:0 1px 3px rgba(0,0,0,0.3);">👇 BAIXAR MINHAS ATIVIDADES AGORA</a>
       <div class="secure-badges">
-        <span class="badge">🔒 Secure Checkout</span>
-        <span class="badge">📧 Instant Delivery</span>
-        <span class="badge">✅ 60-Day Guarantee</span>
-        <span class="badge">💳 All Cards Accepted</span>
+        <span class="badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Secure Checkout</span>
+        <span class="badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> All Cards Accepted</span>
       </div>
+      <p style="color:rgba(255,255,255,0.7);font-size:13px;margin-top:12px;font-weight:600;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Delivered to your email in 2 minutes
+      </p>
     </div>
   </div>
 </section>
@@ -1107,14 +1126,43 @@
 <!-- BLOCK 11: GUARANTEE -->
 <section class="guarantee">
   <div class="container">
-    <div class="guarantee-box">
-      <div class="guarantee-seal">
+    <div class="guarantee-box" style="display:grid;grid-template-columns:180px 1fr;gap:32px;align-items:center;text-align:left;">
+      <div class="guarantee-seal" style="margin:0;width:150px;height:150px;">
         <div class="seal-days">60</div>
         <div class="seal-day-label">Day</div>
         <div class="seal-bottom">Money Back</div>
       </div>
-      <h3>60-Day Money Back Guarantee</h3>
-      <p>Try the entire workbook with your child for a full 60 days. If you don't see a real difference in how your child handles anger, or for any reason at all, just email us and we'll refund every penny. No questions asked. We stand behind this completely.</p>
+      <div>
+        <h3 style="text-align:left;">Our 60-Day "It Works" Guarantee</h3>
+        <p>Download the workbook. Use it with your child.</p>
+        <p>If you don't see a real difference in how they handle anger, or for any reason at all, just email us within 60 days.</p>
+        <p><strong>We'll refund every penny. No questions asked.</strong></p>
+        <p>Either your child gets calmer, or you don't pay. Simple as that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCK 11B: TWO PATHS -->
+<section style="background:#F8F9FA;padding:60px 20px;">
+  <div class="container">
+    <h2 class="section-label" style="color:var(--dark);">The Decision Is Yours</h2>
+    <p class="section-sub" style="margin-top:8px;margin-bottom:32px;">You have two paths ahead:</p>
+    <div class="two-paths-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:780px;margin:0 auto 32px;">
+      <div style="background:white;border:2px solid #FEE2E2;border-radius:16px;padding:28px 24px;text-align:center;">
+        <div style="width:44px;height:44px;background:#EF4444;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:white;font-size:22px;font-weight:900;">✕</div>
+        <h4 style="font-size:14px;font-weight:900;color:var(--dark);text-transform:uppercase;margin-bottom:12px;">The Hard Way: Do Nothing</h4>
+        <p style="font-size:13px;color:#6B7280;line-height:1.6;">Keep guessing what to do when your child explodes. Keep losing your patience. Keep hoping things will get better on their own.</p>
+      </div>
+      <div style="background:white;border:2px solid #BBF7D0;border-radius:16px;padding:28px 24px;text-align:center;">
+        <div style="width:44px;height:44px;background:#22C55E;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:white;font-size:22px;font-weight:900;">✓</div>
+        <h4 style="font-size:14px;font-weight:900;color:var(--dark);text-transform:uppercase;margin-bottom:12px;">The Smart Way: Get the Workbook</h4>
+        <p style="font-size:13px;color:#6B7280;line-height:1.6;">Give your child real tools to understand and manage anger. Start seeing calmer days this week. Risk-free with our 60-day guarantee.</p>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <p style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:20px;">Tap the button below and get instant access today.</p>
+      <a href="https://pay.digitalgoat.com.br/checkout/cmp640w80004c1qoy0tqtjaag?offer=QIY5KUE" class="btn-cta" style="background:#16A34A;color:white;text-shadow:0 1px 3px rgba(0,0,0,0.3);display:inline-block;animation:none;">👇 BAIXAR MINHAS ATIVIDADES AGORA</a>
     </div>
   </div>
 </section>
